@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("Connected to MongoDB successfully"))
 .catch((error) => console.log("Failed to connect to MongoDB"))
 
-app.get("/", async (req,res) => {
+app.get("/movies", async (req,res) => {
     try{
         const {title, director, genre, releasedyear, availablecopies} = req.body;
         const movie=await Movies.find();
@@ -26,7 +26,7 @@ app.get("/", async (req,res) => {
     }
 })
 
-app.get("/:id", async (req,res) => {
+app.get("/movies/:id", async (req,res) => {
     try{
         const {title, director, genre, releasedyear, availablecopies} = req.body;
         const {id} = req.params.id;
@@ -42,7 +42,7 @@ app.get("/:id", async (req,res) => {
     }
 })
 
-app.post("/add-movie", async (req,res) => {
+app.post("/movies/add-movie", async (req,res) => {
     try{
         const {title, director, genre, releasedyear, availablecopies} = req.body;
         if(!title || !director || !genre || !availablecopies){
