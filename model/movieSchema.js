@@ -8,4 +8,5 @@ const movieSchema=new mongoose.Schema({
     availablecopies: {type: Number, required: true}
 })
 
+
 module.exports = mongoose.model("movie", movieSchema);
